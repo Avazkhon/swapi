@@ -1,6 +1,10 @@
 import cookie from 'cookie';
 import 'isomorphic-fetch';
 import queryString from 'query-string';
+import {
+  GET_FILMS,
+  GET_USER,
+} from '../constants';
 
 const swapiModule = (function () {
   const rootURL = 'https://swapi.co/api/';
@@ -64,6 +68,7 @@ const swapiModule = (function () {
 
   return {
     getResources,
+    request,
     getPerson: singularRequestGenerator('people'),
     getPeople: pluralRequestGenerator('people'),
     getFilm: singularRequestGenerator('films'),
@@ -126,6 +131,10 @@ export default function createApiMiddleware(req) {
     };
 
     next(actionWith(action, 'SEND'));
-    return swapiModule.getFilms(action.meta.endpoint).then(successCallback, failCallback);
+    const rootURL = `https://swapi.co/api/${action.meta.endpoint}`;
+    if (action.type === GET_FILMS) {
+      return swapiModule.getFilms(action.meta.endpoint).then(successCallback, failCallback);
+    }
+    return swapiModule.request(rootURL).then(successCallback, failCallback);
   };
 }

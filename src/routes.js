@@ -19,6 +19,14 @@ export default [
       Placeholder: () => <div>...LOADING...</div>,
     }),
   },
+  {
+    path: '/people',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./container/CardUser'),
+      Placeholder: () => <div>...LOADING...</div>,
+    }),
+  },
   // {
   //   path: '*',
   //   component: asyncComponent({

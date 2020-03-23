@@ -63,7 +63,7 @@ class CardFilm extends React.Component {
               {
                 film.characters.map((acter) => (
                   <li key={acter}>
-                    <Link to={`people?id=${acter.match(/[0-9]+/g)}`}>
+                    <Link to={`/people?id=${acter.match(/[0-9]+/g)}`}>
                       {acter}
                     </Link>
                   </li>
