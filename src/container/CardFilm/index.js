@@ -10,6 +10,7 @@ import {
 } from 'actions';
 
 import Layout from 'container/Layout';
+import ReturnBtn from 'widgets/ReturnBtn';
 
 import style from './style';
 
@@ -45,6 +46,7 @@ class CardFilm extends React.Component {
     const film = data && data.results && data.results.find((film) => film.episode_id === +id);
     return (
       <Layout>
+        <ReturnBtn />
         {
           film
           && (
@@ -52,7 +54,7 @@ class CardFilm extends React.Component {
             <h4 className={classes.title}>{film.title}</h4>
             <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
             <div className={classes.items}>
-              <h4 className={classes.title}>Auhtor</h4>
+              <h4 className={classes.title}>Author</h4>
               <p>
                 <strong>Director: </strong>
                 {film.director}

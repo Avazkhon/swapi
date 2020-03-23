@@ -10,6 +10,7 @@ import {
 } from 'actions';
 
 import Layout from 'container/Layout';
+import ReturnBtn from 'widgets/ReturnBtn';
 
 import style from './style';
 
@@ -57,6 +58,7 @@ class CardUser extends React.Component {
     const user = data;
     return (
       <Layout>
+        <ReturnBtn />
         <div className={classes.user}>
           <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
           <div className={classes.profile}>
