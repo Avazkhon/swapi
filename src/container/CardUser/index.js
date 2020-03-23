@@ -59,29 +59,39 @@ class CardUser extends React.Component {
       <Layout>
         <div className={classes.user}>
           <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
-          <ul className={classes.profile}>
-            {
-            user && profile.map(({ key, label }) => {
-              const props = user[key];
-              if (!props) return;
-              return (
-                <li key={key}>
-                  <strong>{label}</strong>
-                  <span>{props}</span>
+          <div>
+            <h4 className={classes.title}>Specifications</h4>
+            <ul className={classes.profile}>
+              {
+              user && profile.map(({ key, label }) => {
+                const props = user[key];
+                if (!props) return;
+                return (
+                  <li key={key}>
+                    <strong>
+                      {label}
+                      :
+                      {' '}
+                    </strong>
+                    <span>{props}</span>
+                  </li>
+                );
+              })
+            }
+            </ul>
+          </div>
+          <div>
+            <h4 className={classes.title}>Films</h4>
+            <ul className={classes.films}>
+              {
+              user && user.films.map((film) => (
+                <li key={film}>
+                  <Link to={`CardFilm/?id=${film.match(/[0-9]+/g)}`}>{film}</Link>
                 </li>
-              );
-            })
-          }
-          </ul>
-          <ul className={classes.films}>
-            {
-            user && user.films.map((film) => (
-              <li key={film}>
-                <Link to={`CardFilm/?id=${film.match(/[0-9]+/g)}`}>{film}</Link>
-              </li>
-            ))
-          }
-          </ul>
+              ))
+            }
+            </ul>
+          </div>
         </div>
       </Layout>
     );

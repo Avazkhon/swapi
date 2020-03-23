@@ -6,9 +6,12 @@ padding: 0;
 html,
 body {
 	height: 100%;
+	background-color: #000000;
+	color: #FFFAF0;
 }
+
 a {
-	color: black;
+	color: #FFFAF0;
 	cursor: pointer;
   text-decoration: none;
 }

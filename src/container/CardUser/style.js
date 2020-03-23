@@ -1,17 +1,20 @@
 export default {
 
+  title: {
+    'text-align': 'center',
+  },
+
   user: {
     display: 'grid',
     'grid-template-areas': `
       "img img films"
       "profile profile films"
     `,
-    'grid-template-rows': '1fr 1fr 1fr',
+    'grid-template-rows': '50px 120px 1fr',
     'grid-template-columns': '33% 33% 34%',
-    'grid-gap': '10px',
+    padding: '10px',
     height: '100vh',
     margin: '0 auto',
-    width: '90%',
   },
 
   profile: {
@@ -32,9 +35,15 @@ export default {
         "films"
       `,
       'grid-template-columns': '100%',
+      'grid-template-rows': '1fr',
+      height: 0,
+    },
+    img: {
+      width: '100%',
     },
   },
-  '@media (min-width: 756px)': {
+
+  '@media (min-width: 577px)': {
     user: {
       'grid-template-areas': `
         "img films"

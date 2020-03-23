@@ -1,6 +1,6 @@
 export default {
   header: {
-    'background-color': 'red',
+    'background-color': '#2F4F4F',
     height: '80px',
   },
 

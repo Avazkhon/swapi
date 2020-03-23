@@ -52,6 +52,7 @@ class CardFilm extends React.Component {
             <h4 className={classes.title}>{film.title}</h4>
             <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
             <div className={classes.items}>
+              <h4 className={classes.title}>Auhtor</h4>
               <p>
                 <strong>Director: </strong>
                 {film.director}
@@ -67,18 +68,24 @@ class CardFilm extends React.Component {
                 {film.release_date}
               </p>
             </div>
-            <div className={classes.opening}>{film.opening_crawl}</div>
-            <ul className={classes.people}>
-              {
-                film.characters.map((acter) => (
-                  <li key={acter}>
-                    <Link to={`/people?id=${acter.match(/[0-9]+/g)}`}>
-                      {acter}
-                    </Link>
-                  </li>
-                ))
-              }
-            </ul>
+            <div className={classes.opening}>
+              <h4 className={classes.title}>Discription</h4>
+              <p>{film.opening_crawl}</p>
+            </div>
+            <div>
+              <h4 className={classes.title}>User</h4>
+              <ul className={classes.people}>
+                {
+                  film.characters.map((acter) => (
+                    <li key={acter}>
+                      <Link to={`/people?id=${acter.match(/[0-9]+/g)}`}>
+                        {acter}
+                      </Link>
+                    </li>
+                  ))
+                }
+              </ul>
+            </div>
           </div>
           )
         }

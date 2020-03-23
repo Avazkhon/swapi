@@ -1,5 +1,5 @@
 export default {
   header: {
-    color: 'red',
+    // color: '#F8F8FF',
   },
 };
