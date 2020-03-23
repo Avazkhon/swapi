@@ -30,6 +30,16 @@ class CardUser extends React.Component {
     super(props);
   }
 
+  static async getInitialProps({
+    req, res, match, history, location, ...ctx
+  }) {
+    const { store } = ctx;
+    if (store && store.dispatch) {
+      const { id } = req.query;
+      await store.dispatch(getUser(id));
+    }
+  }
+
   componentDidMount() {
     const { getUser, location } = this.props;
     const { id } = queryString.parse(location.search);

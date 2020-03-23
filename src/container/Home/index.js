@@ -17,6 +17,15 @@ class Home extends React.Component {
     super(props);
   }
 
+  static async getInitialProps({
+    req, res, match, history, location, ...ctx
+  }) {
+    const { store } = ctx;
+    if (store && store.dispatch) {
+      await store.dispatch(getFilms());
+    }
+  }
+
   componentDidMount() {
     const { getFilms } = this.props;
     getFilms();
