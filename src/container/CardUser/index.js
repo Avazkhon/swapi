@@ -59,9 +59,9 @@ class CardUser extends React.Component {
       <Layout>
         <div className={classes.user}>
           <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
-          <div>
+          <div className={classes.profile}>
             <h4 className={classes.title}>Specifications</h4>
-            <ul className={classes.profile}>
+            <ul>
               {
               user && profile.map(({ key, label }) => {
                 const props = user[key];
@@ -80,9 +80,9 @@ class CardUser extends React.Component {
             }
             </ul>
           </div>
-          <div>
+          <div className={classes.films}>
             <h4 className={classes.title}>Films</h4>
-            <ul className={classes.films}>
+            <ul>
               {
               user && user.films.map((film) => (
                 <li key={film}>

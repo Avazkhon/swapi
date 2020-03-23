@@ -46,7 +46,20 @@ export default {
   '@media (min-width: 577px)': {
     user: {
       'grid-template-areas': `
+        "img"
+        "films"
+        "profile"
+      `,
+      'grid-template-rows': '1fr',
+      'grid-template-columns': '100%',
+    },
+  },
+
+  '@media (min-width: 720px)': {
+    user: {
+      'grid-template-areas': `
         "img films"
+        "profile films"
         "profile films"
       `,
       'grid-template-rows': '120px 1fr',
