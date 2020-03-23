@@ -84,12 +84,12 @@ class CardUser extends React.Component {
             <h4 className={classes.title}>Films</h4>
             <ul>
               {
-              user && user.films.map((film) => (
-                <li key={film}>
-                  <Link to={`CardFilm/?id=${film.match(/[0-9]+/g)}`}>{film}</Link>
-                </li>
-              ))
-            }
+                user && user.films.map((film) => (
+                  <li key={film}>
+                    <Link to={`CardFilm/?id=${film.match(/[0-9]+/g)}`}>{film}</Link>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
