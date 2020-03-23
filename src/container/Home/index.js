@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import injectSheet from 'react-jss';
+import { Link } from 'react-router-dom';
 
 import {
   getFilms,
@@ -23,13 +24,46 @@ class Home extends React.Component {
 
   render() {
     const {
+      films: {
+        data,
+      },
       classes,
     } = this.props;
 
     return (
       <Layout>
         <div className={classes.home}>
-          Home
+          {
+            data
+            && (
+            <div className={classes['films-list']}>
+              {
+                data.results.map((film) => (
+                  <div key={film.episode_id} className={classes.card}>
+                    <Link to={`CardFilm/?id=${film.episode_id}`}>
+                      <h4>{film.title}</h4>
+                      <img width="80%" src="https://via.placeholder.com/190x120.png" />
+                      <p>
+                        <strong>Director: </strong>
+                        {film.director}
+                        {' '}
+
+                      </p>
+                      <p>
+                        <strong>Producer: </strong>
+                        {film.producer}
+                      </p>
+                      <p>
+                        <strong>Release: </strong>
+                        {film.release_date}
+                      </p>
+                    </Link>
+                  </div>
+                ))
+              }
+            </div>
+            )
+          }
         </div>
       </Layout>
     );
@@ -37,13 +71,20 @@ class Home extends React.Component {
 }
 
 Home.propType = {
+  films: PropTypes.shape({
+    isFetching: PropTypes.bool,
+    data: PropTypes.shape({}),
+    error: PropTypes.shape({}),
+  }),
   getFilms: PropTypes.func,
 };
 
 function mapStateToProps(state) {
   const {
+    films,
   } = state;
   return {
+    films,
   };
 }
 

@@ -13,9 +13,9 @@ class Layout extends React.Component {
     return (
       <React.StrictMode>
         <Header />
-        <div className="content">
+        <content>
           {this.props.children}
-        </div>
+        </content>
       </React.StrictMode>
     );
   }

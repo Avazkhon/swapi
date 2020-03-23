@@ -126,7 +126,6 @@ export default function createApiMiddleware(req) {
     };
 
     next(actionWith(action, 'SEND'));
-
-    return swapiModule.getFilms('films').then(successCallback, failCallback);
+    return swapiModule.getFilms(action.meta.endpoint).then(successCallback, failCallback);
   };
 }

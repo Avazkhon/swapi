@@ -11,6 +11,14 @@ export default [
       Placeholder: () => <div>...LOADING...</div>,
     }),
   },
+  {
+    path: '/CardFilm',
+    exact: true,
+    component: asyncComponent({
+      loader: () => import('./container/CardFilm'),
+      Placeholder: () => <div>...LOADING...</div>,
+    }),
+  },
   // {
   //   path: '*',
   //   component: asyncComponent({
