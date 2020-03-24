@@ -17,6 +17,9 @@ a {
 	font-size: 18px;
   margin-top: 5px;
 }
+a:hover {
+	opacity: .5;
+}
 
 ul {
 	list-style: none;
