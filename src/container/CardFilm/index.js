@@ -30,8 +30,10 @@ class CardFilm extends React.Component {
   }
 
   componentDidMount() {
-    const { getFilms } = this.props;
-    getFilms();
+    const { getFilms, films: { data } } = this.props;
+    if (!data) {
+      getFilms();
+    }
   }
 
   render() {

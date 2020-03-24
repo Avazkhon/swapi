@@ -43,9 +43,11 @@ class CardUser extends React.Component {
   }
 
   componentDidMount() {
-    const { getUser, location } = this.props;
+    const { getUser, location, user: { data } } = this.props;
     const { id } = queryString.parse(location.search);
-    getUser(id);
+    if (!data) {
+      getUser(id);
+    }
   }
 
   render() {
