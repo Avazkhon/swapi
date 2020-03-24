@@ -11,6 +11,7 @@ import {
 
 import Layout from 'container/Layout';
 import ReturnBtn from 'widgets/ReturnBtn';
+import Loader from 'widgets/Loader';
 
 import style from './style';
 
@@ -51,6 +52,7 @@ class CardUser extends React.Component {
     const {
       user: {
         data,
+        isFetching,
       },
       classes,
     } = this.props;
@@ -59,6 +61,9 @@ class CardUser extends React.Component {
     return (
       <Layout>
         <ReturnBtn />
+        {
+          isFetching && <Loader />
+        }
         <div className={classes.user}>
           <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
           <div className={classes.profile}>

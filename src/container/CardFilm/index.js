@@ -11,6 +11,7 @@ import {
 
 import Layout from 'container/Layout';
 import ReturnBtn from 'widgets/ReturnBtn';
+import Loader from 'widgets/Loader';
 
 import style from './style';
 
@@ -37,6 +38,7 @@ class CardFilm extends React.Component {
     const {
       films: {
         data,
+        isFetching,
       },
       classes,
       location,
@@ -47,6 +49,9 @@ class CardFilm extends React.Component {
     return (
       <Layout>
         <ReturnBtn />
+        {
+          isFetching && <Loader />
+        }
         {
           film
           && (

@@ -9,6 +9,7 @@ import {
 } from 'actions';
 
 import Layout from 'container/Layout';
+import Loader from 'widgets/Loader';
 
 import style from './style';
 
@@ -35,6 +36,7 @@ class Home extends React.Component {
     const {
       films: {
         data,
+        isFetching,
       },
       classes,
     } = this.props;
@@ -42,6 +44,9 @@ class Home extends React.Component {
     return (
       <Layout>
         <div className={classes.home}>
+          {
+            isFetching && <Loader />
+          }
           {
             data
             && (
