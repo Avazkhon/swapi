@@ -1,6 +1,6 @@
 # swapi
 ## core technology
- ##### razzle, React, redux, react-jss, react-router-dom, express
+ ##### razzle, react, redux, react-jss, react-router-dom, express
 
 ## install
 `npm install`
