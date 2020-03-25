@@ -45,7 +45,7 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        <div className={classes.home}>
+        <div>
           {
             isFetching && <Loader />
           }
@@ -89,7 +89,15 @@ class Home extends React.Component {
 Home.propType = {
   films: PropTypes.shape({
     isFetching: PropTypes.bool,
-    data: PropTypes.shape({}),
+    data: PropTypes.shape({
+      results: PropTypes.arrayOf({
+        episode_id: PropTypes.string,
+        title: PropTypes.string,
+        director: PropTypes.string,
+        producer: PropTypes.string,
+        release_date: PropTypes.string,
+      }),
+    }),
     error: PropTypes.shape({}),
   }),
   getFilms: PropTypes.func,

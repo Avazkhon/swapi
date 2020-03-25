@@ -5,7 +5,7 @@ export default {
     'grid-template-areas': `
       "title title people"
       "img items people"
-      "opening opening people"
+      "discription discription people"
     `,
     'grid-template-rows': '50px 120px 1fr',
     'grid-template-columns': '33% 33% 34%',
@@ -24,8 +24,8 @@ export default {
   items: {
     'grid-area': 'items',
   },
-  opening: {
-    'grid-area': 'opening',
+  discription: {
+    'grid-area': 'discription',
   },
   people: {
     'grid-area': 'people',
@@ -37,7 +37,7 @@ export default {
         "title"
         "img"
         "items"
-        "opening"
+        "discription"
         "people"
       `,
       'grid-template-columns': '100%',
@@ -54,7 +54,7 @@ export default {
         "title title people"
         "img img people"
         "items items people"
-        "opening opening people"
+        "discription discription people"
       `,
       'grid-template-rows': '50px 120px 50px 1fr',
     },
@@ -65,7 +65,7 @@ export default {
       'grid-template-areas': `
         "title title people"
         "img items people"
-        "opening opening people"
+        "discription discription people"
       `,
       'grid-template-rows': '50px 120px 50px 1fr',
     },

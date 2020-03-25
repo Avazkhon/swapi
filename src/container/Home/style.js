@@ -1,7 +1,4 @@
 export default {
-  home: {
-    // color: 'red',
-  },
 
   'films-list': {
     display: 'grid',

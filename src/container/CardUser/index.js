@@ -27,6 +27,7 @@ const profile = [
   { key: 'created', label: 'created' },
   { key: 'edited', label: 'edited' },
 ];
+
 class CardUser extends React.Component {
   constructor(props) {
     super(props);
@@ -44,8 +45,8 @@ class CardUser extends React.Component {
 
   componentDidMount() {
     const { getUser, location, user: { data } } = this.props;
-    const { id } = queryString.parse(location.search);
     if (!data) {
+      const { id } = queryString.parse(location.search);
       getUser(id);
     }
   }
@@ -53,13 +54,12 @@ class CardUser extends React.Component {
   render() {
     const {
       user: {
-        data,
+        data: user,
         isFetching,
       },
       classes,
     } = this.props;
 
-    const user = data;
     return (
       <Layout>
         <ReturnBtn />
@@ -72,21 +72,21 @@ class CardUser extends React.Component {
             <h4 className={classes.title}>Specifications</h4>
             <ul>
               {
-              user && profile.map(({ key, label }) => {
-                const props = user[key];
-                if (!props) return;
-                return (
-                  <li key={key}>
-                    <strong>
-                      {label}
-                      :
-                      {' '}
-                    </strong>
-                    <span>{props}</span>
-                  </li>
-                );
-              })
-            }
+                user && profile.map(({ key, label }) => {
+                  const props = user[key];
+                  if (!props) return;
+                  return (
+                    <li key={key}>
+                      <strong>
+                        {label}
+                        :
+                        {' '}
+                      </strong>
+                      <span>{props}</span>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </div>
           <div className={classes.films}>

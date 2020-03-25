@@ -23,6 +23,9 @@ class Header extends React.Component {
           <Link to="/">
             Home
           </Link>
+          <a href="mailto: kamalxanovavazxon@gmail.com">
+            Support
+          </a>
         </nav>
       </header>
     );
@@ -30,18 +33,6 @@ class Header extends React.Component {
 }
 
 Header.propType = {
+  classes: PropTypes.shape({}),
 };
-
-function mapStateToProps(state) {
-  const {
-    auth,
-  } = state;
-  return {
-    auth,
-  };
-}
-
-export default injectSheet(style)(
-  connect(mapStateToProps, {
-  })(Header),
-);
+export default injectSheet(style)(Header);

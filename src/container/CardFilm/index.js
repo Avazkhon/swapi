@@ -48,6 +48,7 @@ class CardFilm extends React.Component {
 
     const { id } = queryString.parse(location.search);
     const film = data && data.results && data.results.find((film) => film.episode_id === +id);
+
     return (
       <Layout>
         <ReturnBtn />
@@ -57,7 +58,7 @@ class CardFilm extends React.Component {
         {
           film
           && (
-          <div key={film.episode_id} className={classes['card-film']}>
+          <div className={classes['card-film']}>
             <h4 className={classes.title}>{film.title}</h4>
             <img className={classes.img} src="https://via.placeholder.com/350x120.png" />
             <div className={classes.items}>
@@ -66,7 +67,6 @@ class CardFilm extends React.Component {
                 <strong>Director: </strong>
                 {film.director}
                 {' '}
-
               </p>
               <p>
                 <strong>Producer: </strong>
@@ -77,12 +77,12 @@ class CardFilm extends React.Component {
                 {film.release_date}
               </p>
             </div>
-            <div className={classes.opening}>
+            <div className={classes.discription}>
               <h4 className={classes.title}>Discription</h4>
               <p>{film.opening_crawl}</p>
             </div>
             <div>
-              <h4 className={classes.title}>User</h4>
+              <h4 className={classes.title}>People</h4>
               <ul className={classes.people}>
                 {
                   film.characters.map((acter) => (
@@ -106,7 +106,16 @@ class CardFilm extends React.Component {
 CardFilm.propType = {
   films: PropTypes.shape({
     isFetching: PropTypes.bool,
-    data: PropTypes.shape({}),
+    data: PropTypes.shape({
+      results: PropTypes.shape({
+        title: PropTypes.string,
+        director: PropTypes.string,
+        producer: PropTypes.string,
+        release_date: PropTypes.string,
+        opening_crawl: PropTypes.string,
+        characters: PropTypes.arrayOf(PropTypes.string),
+      }),
+    }),
     error: PropTypes.shape({}),
   }),
   getFilms: PropTypes.func,
