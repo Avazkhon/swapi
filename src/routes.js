@@ -27,11 +27,4 @@ export default [
       Placeholder: () => <div>...LOADING...</div>,
     }),
   },
-  // {
-  //   path: '*',
-  //   component: asyncComponent({
-  //     loader: () => import('./container/NotFound'),
-  //     Placeholder: () => <div>...DONT PAGE</div>,
-  //   }),
-  // },
 ];

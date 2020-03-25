@@ -5,6 +5,7 @@ export default {
 
     '&:hover': {
       cursor: 'pointer',
+      opacity: '.5',
     },
   },
 };
