@@ -16,6 +16,9 @@ import style from './style';
 class Home extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      isSort: false,
+    }
   }
 
   static async getInitialProps({
@@ -34,6 +37,31 @@ class Home extends React.Component {
     }
   }
 
+  handleSort = () => {
+    this.setState(prevState =>({ isSort: !prevState.isSort }))
+  }
+
+  sortFilms = (films, isSort) => (
+    films.sort(function (a, b) {
+      if (isSort) {
+        if (a.release_date > b.release_date) {
+          return -1;
+        }
+        if (a.release_date < b.release_date) {
+          return 1;
+        }
+        return 0;
+      } else {
+        if (a.release_date > b.release_date) {
+          return 1;
+        }
+        if (a.release_date < b.release_date) {
+          return -1;
+        }
+        return 0;
+      }
+    })
+  )
   render() {
     const {
       films: {
@@ -43,18 +71,24 @@ class Home extends React.Component {
       classes,
     } = this.props;
 
+    const {
+      isSort,
+    } = this.state;
+    const films = data && data.results && this.sortFilms(data.results, isSort);
+
     return (
       <Layout>
         <div>
+          { isFetching && <Loader /> }
+          <div  className={classes.btn} onClick={this.handleSort}>
+            First { isSort ? ' old' : ' new' }
+          </div>
           {
-            isFetching && <Loader />
-          }
-          {
-            data
+            films
             && (
             <div className={classes['films-list']}>
               {
-                data.results.map((film) => (
+                films.map((film) => (
                   <div key={film.episode_id} className={classes.card}>
                     <Link to={`CardFilm/?id=${film.episode_id}`}>
                       <h4>{film.title}</h4>

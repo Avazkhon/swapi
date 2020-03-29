@@ -23,12 +23,15 @@ export default {
   },
   items: {
     'grid-area': 'items',
+    'margin-top': '10px',
   },
   discription: {
     'grid-area': 'discription',
+    'margin-top': '10px',
   },
   people: {
     'grid-area': 'people',
+    'margin-top': '10px',
   },
 
   '@media (min-width: 0) and (max-width: 576px)': {

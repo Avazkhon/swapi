@@ -19,12 +19,14 @@ export default {
 
   profile: {
     'grid-area': 'profile',
+    'margin-top': '10px',
   },
   img: {
     'grid-area': 'img',
   },
   films: {
     'grid-area': 'films',
+    'margin-top': '10px',
   },
 
   '@media (min-width: 0) and (max-width: 576px)': {
