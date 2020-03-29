@@ -8,6 +8,11 @@ body {
 	height: 100%;
 	background-color: #000000;
 	color: #FFFAF0;
+	background: url('https://avatars.mds.yandex.net/get-zen_doc/51182/pub_5b06d61ff03173cc7a3d626a_5b06d6a3c3321b5968009b1e/scale_1200');
+	-moz-background-size: 100%;
+	-webkit-background-size: 100%;
+	-o-background-size: 100%;
+	background-size: 100%;
 }
 
 a {

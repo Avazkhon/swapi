@@ -21,6 +21,9 @@ class Header extends React.Component {
       <header className={classes.header}>
         <nav className={classes.nav}>
           <Link to="/">
+            <h4>STAR WAR</h4>
+          </Link>
+          <Link to="/">
             Home
           </Link>
           <a href="mailto: kamalxanovavazxon@gmail.com">

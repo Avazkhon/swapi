@@ -11,7 +11,7 @@ export default {
 
   '@media (min-width: 0) and (max-width: 576px)': {
     nav: {
-      'grid-template-columns': 'repeat(auto-fill, minmax(80px, 4fr))',
+      'grid-template-columns': 'repeat(auto-fill, minmax(74px, 4fr))',
     },
   },
   '@media (min-width: 577px)': {
